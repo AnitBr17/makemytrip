@@ -1,0 +1,217 @@
+.map-container {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+}
+
+.marker-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 0;
+}
+
+.popup-content {
+  padding: 10px;
+  max-width: 200px;
+}
+
+.popup-content img {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.popup-content h3 {
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.popup-content p {
+  margin: 0 0 10px 0;
+  color: #666;
+}
+
+.map-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.map-placeholder h2 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.map-placeholder p {
+  color: #666;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.map-instructions {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.map-instructions h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.map-instructions ol {
+  text-align: left;
+  padding-left: 1.5rem;
+}
+
+.map-instructions li {
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.map-instructions a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.map-instructions a:hover {
+  text-decoration: underline;
+}
+
+.marker-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.marker-btn i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.marker-btn:hover i {
+  transform: scale(1.2);
+}
+
+.popup-content {
+  max-width: 300px;
+  padding: 1rem;
+}
+
+.popup-content img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.popup-content h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.popup-content p {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.mapboxgl-popup-content {
+  padding: 0 !important;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mapboxgl-popup-close-button {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: calc(100vh - 120px);
+  }
+
+  .map-placeholder {
+    padding: 1rem;
+  }
+
+  .map-instructions {
+    padding: 1rem;
+  }
+
+  .popup-content {
+    max-width: 250px;
+  }
+}
+
+.map-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.map-content h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--secondary-color);
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.destination-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+}
+
+.destination-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.destination-card h3 {
+  padding: 1rem 1rem 0.5rem;
+  color: var(--secondary-color);
+}
+
+.destination-card p {
+  padding: 0 1rem 1rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    padding: 1rem;
+  }
+  
+  .destinations-grid {
+    grid-template-columns: 1fr;
+  }
+}
