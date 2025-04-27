@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { assets } from '../assets/assets.js';
 import { useClerk, UserButton, useUser } from '@clerk/clerk-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 const BookIcon = () => (
   <svg
@@ -36,17 +36,17 @@ const Navbar = () => {
   const { openSignIn } = useClerk();
   const { user } = useUser();
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-
     if (location.pathname !== '/') {
       setIsScrolled(true);
-      return
-    }
-    else {
+      return;
+    } else {
       setIsScrolled(false);
     }
-    setIsScrolled(prev => location.pathname !== '/' ? true : prev)
+    setIsScrolled(prev => (location.pathname !== '/' ? true : prev));
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -58,46 +58,36 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 w-full flex items-center justify-between px-4 md:px-16 lg:px-24 xl:px-32 transition-all duration-500 z-50 ${isScrolled ? "bg-white/80 shadow-md text-gray-700 backdrop-blur-lg py-3 md:py-4" : "py-4 md:py-6"}`}>
 
       {/* Logo */}
-      {/* <a href="/" className="flex items-center gap-2">
-        <img src={assets.logo} alt="logo" className={`h-9 ${isScrolled ? "invert opacity-80" : ""}`} />
-      </a> */}
-      {/* <a href="/" className="flex items-center gap-2">
-        <span className="text-3xl font-bold text-white">
-          <img src={assets.home} alt="logo" className={`h-9 ${isScrolled ? "invert opacity-80" : ""}`} />
+      <a href="/" className="flex items-center gap-2">
+        <img
+          src={assets.home}
+          alt="logo"
+          className={`h-11 ${isScrolled ? "invert-0" : "invert brightness-0"}`}
+        />
+        <span className={`text-3xl font-bold transition-colors duration-300 ${isScrolled ? "text-black" : "text-white"}`}>
           UrbanNights
         </span>
-      </a> */}
-      <a href="/" className="flex items-center gap-2">
-  <img 
-    src={assets.home} 
-    alt="logo" 
-    className={`h-11 ${isScrolled ? "invert-0" : "invert brightness-0"}`} 
-  />
-  <span className={`text-3xl font-bold transition-colors duration-300 ${isScrolled ? "text-black" : "text-white"}`}>
-    UrbanNights
-  </span>
-</a>
-
-
-
+      </a>
 
       {/* Desktop Nav */}
       <div className="hidden md:flex items-center gap-4 lg:gap-8">
         {navLinks.map((link, i) => (
-          <a key={i} href={link.path} className={`group flex flex-col gap-0.5 ${isScrolled ? "text-gray-700" : "text-white"}`}>
+          <Link key={i} to={link.path} className={`group flex flex-col gap-0.5 ${isScrolled ? "text-gray-700" : "text-white"}`}>
             {link.name}
             <div className={`${isScrolled ? "bg-gray-700" : "bg-white"} h-0.5 w-0 group-hover:w-full transition-all duration-300`} />
-          </a>
+          </Link>
         ))}
         {user && (
-          <button className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${isScrolled ? 'text-black' : 'text-white'} transition-all`}
-            onClick={() => navigate('/owner')}>
+          <button
+            className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${isScrolled ? 'text-black' : 'text-white'} transition-all`}
+            onClick={() => navigate('/owner')}
+          >
             Dashboard
           </button>
         )}
       </div>
 
-      {/* Desktop Right - Only one time UserButton and Booking */}
+      {/* Desktop Right - UserButton and Booking */}
       <div className="hidden md:flex items-center gap-4">
         <img src={assets.searchIcon} alt="search" className={`h-7 w-7 cursor-pointer transition-all duration-500 ${isScrolled ? "invert" : ""}`} />
         {user ? (
@@ -135,9 +125,9 @@ const Navbar = () => {
         </button>
 
         {navLinks.map((link, i) => (
-          <a key={i} href={link.path} onClick={() => setIsMenuOpen(false)}>
+          <Link key={i} to={link.path} onClick={() => setIsMenuOpen(false)}>
             {link.name}
-          </a>
+          </Link>
         ))}
 
         {user ? (
