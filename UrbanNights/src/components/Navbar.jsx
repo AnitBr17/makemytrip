@@ -39,14 +39,14 @@ const Navbar = () => {
 
   useEffect(() => {
 
-    if(location.pathname !== '/') {
+    if (location.pathname !== '/') {
       setIsScrolled(true);
       return
     }
-    else{
+    else {
       setIsScrolled(false);
     }
-    setIsScrolled(prev=>location.pathname !== '/' ? true : prev)
+    setIsScrolled(prev => location.pathname !== '/' ? true : prev)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -56,11 +56,30 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 w-full flex items-center justify-between px-4 md:px-16 lg:px-24 xl:px-32 transition-all duration-500 z-50 ${isScrolled ? "bg-white/80 shadow-md text-gray-700 backdrop-blur-lg py-3 md:py-4" : "py-4 md:py-6"}`}>
-      
+
       {/* Logo */}
-      <a href="/" className="flex items-center gap-2">
+      {/* <a href="/" className="flex items-center gap-2">
         <img src={assets.logo} alt="logo" className={`h-9 ${isScrolled ? "invert opacity-80" : ""}`} />
-      </a>
+      </a> */}
+      {/* <a href="/" className="flex items-center gap-2">
+        <span className="text-3xl font-bold text-white">
+          <img src={assets.home} alt="logo" className={`h-9 ${isScrolled ? "invert opacity-80" : ""}`} />
+          UrbanNights
+        </span>
+      </a> */}
+      <a href="/" className="flex items-center gap-2">
+  <img 
+    src={assets.home} 
+    alt="logo" 
+    className={`h-11 ${isScrolled ? "invert-0" : "invert brightness-0"}`} 
+  />
+  <span className={`text-3xl font-bold transition-colors duration-300 ${isScrolled ? "text-black" : "text-white"}`}>
+    UrbanNights
+  </span>
+</a>
+
+
+
 
       {/* Desktop Nav */}
       <div className="hidden md:flex items-center gap-4 lg:gap-8">
