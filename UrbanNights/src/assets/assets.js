@@ -38,7 +38,7 @@ import uploadArea from "./uploadArea.svg";
 import totalBookingIcon from "./totalBookingIcon.svg";
 import totalRevenueIcon from "./totalRevenueIcon.svg";
 import home from "./home.svg";
-import hero from "./hero.jpg";
+import hero from "./Hero.jpg";
 
 
 export const assets = {
